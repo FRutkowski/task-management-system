@@ -23,6 +23,7 @@
     "@nuxtjs/tailwindcss": "^6.11.4",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
+    "nuxt-aos": "^1.2.4",
     "typescript": "^5.3.3"
   }
 }
