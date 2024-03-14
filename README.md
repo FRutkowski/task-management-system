@@ -5,9 +5,9 @@ This software will this software will allow you to plan tasks using own implemen
 Current state:
 
 - [x] Basic Trello Board functionalities
-- [] Main page 
-- [] Login
-- [] Register
-- [] Saving Tasks
-- [] Add Task Date
-- [] any other ideas I'll come up with while creating this
+- [ ] Main page 
+- [ ] Login
+- [ ] Register
+- [ ] Saving Tasks
+- [ ] Add Task Date
+- [ ] any other ideas I'll come up with while creating this
