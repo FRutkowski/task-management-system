@@ -1,6 +1,6 @@
 # Task Managment System
 
-This software will this software will allow you to plan tasks using own implementation of a Trello board.
+This software will this software will allow you to plan tasks using own implementation of a Trello Board.
 
 Current state:
 
