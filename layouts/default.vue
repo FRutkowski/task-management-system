@@ -10,7 +10,7 @@ onMounted(() => {
     <!-- Tutaj będzie nawigacja -->
     <nav
       class="flex bg-black p-9 sticky top-0 z-10 shadow-md"
-      :class="arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-white/5'"
+      :class="arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-gray-900/40'"
     >
       <NavButton
         class="ml-96"

@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   components: [
     { path: '~/components/buttons', pathPrefix: false },
     { path: '~/components/dashboard', pathPrefix: false },
+    { path: '~/components/ui', pathPrefix: false },
     '~/components'
   ],
 
