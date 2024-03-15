@@ -45,7 +45,7 @@ export const useTextColor = (color: MaybeRef) => {
 }
 
 export const useHoverTextColor = (color: MaybeRef) => {
-  const textColor = computed(() => {
+  const onHoverTextColor = computed(() => {
     switch (color.value) {
       case 'red':
       case 'orange':
@@ -85,6 +85,6 @@ export const useHoverTextColor = (color: MaybeRef) => {
   })
 
   return {
-    textColor
+    onHoverTextColor
   }
 }
