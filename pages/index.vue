@@ -80,8 +80,20 @@ AOS.init()
           data-aos-duration="1000"
           class="w-[28rem] bg-gray-800 rounded-lg p-10 text-2xl"
         >
-          Finish on time
+          Be productive
           <FinishedTasksExample />
+        </div>
+        <div class="flex justify-center items-center col-span-3 text-2xl py-20">
+          <div class="text-gray-500 text-3xl px-2">
+            „
+          </div>
+          <div class="italic">
+            The productivity of work is not the responsibility of the worker but of the manager.
+          </div>
+          <div class="text-gray-500 text-3xl px-2">
+            ”
+          </div>
+          ~ Peter Drucker
         </div>
       </div>
     </div>
