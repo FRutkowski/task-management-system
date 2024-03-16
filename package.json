@@ -24,6 +24,7 @@
     "aos": "^2.3.4",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
+    "nuxt-icon": "^0.6.9",
     "typescript": "^5.3.3"
   }
 }

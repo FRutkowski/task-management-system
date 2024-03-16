@@ -29,7 +29,8 @@
     </div>
     <div class="absolute top-40 left-24 drag-task">
       <BlankTask
-        :drag="true"
+        :border="true"
+        border-color="indigo"
       />
     </div>
 

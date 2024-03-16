@@ -88,3 +88,49 @@ export const useHoverTextColor = (color: MaybeRef) => {
     onHoverTextColor
   }
 }
+
+export const useBorderColor = (color?: MaybeRef) => {
+  const borderColor = computed(() => {
+    switch (color.value) {
+      case 'red':
+        return 'border-red-600'
+      case 'orange':
+        return 'border-orange-600'
+      case 'amber':
+        return 'border-amber-600'
+      case 'yellow':
+        return 'border-yellow-600'
+      case 'lime':
+        return 'border-lime-600'
+      case 'green':
+        return 'border-green-600'
+      case 'emerland':
+        return 'border-emerland-600'
+      case 'teal':
+        return 'border-teal-600'
+      case 'cyan':
+        return 'border-cyan-600'
+      case 'sky':
+        return 'border-sky-600'
+      case 'blue':
+        return 'border-blue-600'
+      case 'indigo':
+        return 'border-indigo-600'
+      case 'violet':
+        return 'borde-violet-600'
+      case 'fuchsia':
+        return 'border-fuchsia-600'
+      case 'pink':
+        return 'border-pink-600'
+      case 'rose':
+        return 'border-rose-600'
+      case 'purple':
+      default:
+        return 'border-purple-600'
+    }
+  })
+
+  return {
+    borderColor
+  }
+}
