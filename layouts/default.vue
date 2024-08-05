@@ -13,7 +13,7 @@ onMounted(() => {
       :class="arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-gray-900/40'"
     >
       <NavButton
-        class="ml-96"
+        class="sm:ml-24 md:ml-32 lg:ml-40 xl:ml-64"
         text-color="purple"
       >
         Home
@@ -36,7 +36,7 @@ onMounted(() => {
         Login
       </NavButtonLink>
       <NavButtonLink
-        class="mr-48"
+        class="sm:mr-24 md:mr-32 lg:mr-40 xl:mr-64"
         to="/register"
       >
         Register

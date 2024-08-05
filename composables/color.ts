@@ -48,6 +48,7 @@ export const useHoverTextColor = (color: MaybeRef) => {
   const onHoverTextColor = computed(() => {
     switch (color.value) {
       case 'red':
+        return 'hover:text-red-400'
       case 'orange':
         return 'hover:text-orange-400'
       case 'amber':
