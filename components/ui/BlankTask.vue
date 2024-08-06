@@ -23,6 +23,3 @@ const { borderColor: borderColorStyle } = useBorderColor(borderColor)
     <div class="ml-2 w-28 h-4 bg-gray-200 rounded-lg" />
   </div>
 </template>
-
-<style scoped>
-  </style>
