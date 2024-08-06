@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gradient-to-r from-rose-500 to-pink-500 w-full h-[20rem] mt-10 rounded-lg relative">
-    <div class="absolute top-10 left-24">
+  <div class="bg-gradient-to-r from-rose-500 to-pink-500 w-[17rem] sm:w-[20rem] h-[20rem] mt-10 rounded-lg relative">
+    <div class="absolute top-10 left-16 sm:left-20">
       <div class="bg-gray-200 p-5 rounded w-[10rem] h-[16rem] text-black text-xs">
         <header class="flex font-bold mb-4 items-center">
           <div class="w-[0.30rem] h-[0.30rem] bg-slate-400" />

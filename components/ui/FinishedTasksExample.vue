@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-r from-purple-600 to-cyan-500 w-full h-[20rem] mt-10 rounded-lg relative ">
+  <div class="bg-gradient-to-r from-purple-600 to-cyan-500 w-[20rem] h-[20rem] mt-10 rounded-lg relative ">
     <div class="absolute top-10 left-8 bg-gray-200 p-5 rounded w-[160px] h-[256px] text-black text-xs">
       <header class="flex font-bold mb-4 items-center">
         <div class="shrink-0 w-[0.30rem] h-[0.30rem] bg-slate-400" />
