@@ -9,11 +9,15 @@ onMounted(() => {
   <div class="min-h-screen bg-gradient-to-r from-indigo-900 from-0% via-purple-700 via-20% to-red-500 to-100%">
     <!-- Tutaj będzie nawigacja -->
     <nav
-      class="flex bg-black p-9 sticky top-0 z-10 shadow-md"
+      class="flex bg-black p-9 sticky top-0 z-10 shadow-md items-center"
       :class="arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-gray-900/40'"
     >
+      <img
+        src="~/assets/icons/logo2.svg"
+        class="h-[3.4rem] sm:ml-24 md:ml-32 lg:ml-40 xl:ml-64 mr-10 hover:cursor-pointer"
+        @click="navigateTo('/')"
+      >
       <NavButton
-        class="sm:ml-24 md:ml-32 lg:ml-40 xl:ml-64"
         text-color="purple"
       >
         Home

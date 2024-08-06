@@ -53,7 +53,7 @@ const { width } = useWindowSize()
           data-aos-delay="1000"
           data-aos-once="true"
           data-aos-duration="1500"
-          class="flex text-[0.5em] py-28 items-center lg:min-w-[900px]"
+          class="flex text-[0.4em] py-28 items-center lg:min-w-[900px]"
         >
           Application for managing tasks.
           <button class="ml-auto rounded-full border-2 border-white w-64 h-12 text-xl bg-transparent delay-150 duration-100 hover:text-black hover:bg-white">
@@ -72,7 +72,7 @@ const { width } = useWindowSize()
       >
         How does it work...
       </div>
-      <div class="grid grid-cols-3 px-20 py-20 gap-40">
+      <div class="grid grid-cols-1 md:grid-cols-3 px-20 py-20 gap-40">
         <div
           data-aos="fade-up"
           data-aos-delay="1000"
