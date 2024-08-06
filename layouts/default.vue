@@ -14,7 +14,7 @@ onMounted(() => {
     >
       <img
         src="~/assets/icons/logo2.svg"
-        class="h-[3.4rem] sm:ml-24 md:ml-32 lg:ml-40 xl:ml-64 mr-10 hover:cursor-pointer"
+        class="h-[2.5rem] md:h-[3.4rem] sm:ml-24 md:ml-32 lg:ml-40 xl:ml-64 mr-10 hover:cursor-pointer"
         @click="navigateTo('/')"
       >
       <NavButton

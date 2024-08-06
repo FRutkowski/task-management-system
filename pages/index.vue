@@ -62,59 +62,93 @@ const { width } = useWindowSize()
         </div>
       </div>
     </div>
-    <div class="flex flex-col items-center h-[120dvh] w-full bg-gray-950 text-white py-14 px-24">
+    <div
+      class="flex flex-col h-[270dvh] bg-gray-950 text-white py-14 sm:px-24"
+    >
       <div
+        v-if="width > LG"
         data-aos="fade-up"
         data-aos-delay="500"
         data-aos-once="true"
         data-aos-duration="1000"
-        class="text-3xl py-10"
+        class="text-3xl py-10 mx-auto"
       >
         How does it work...
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 px-20 py-20 gap-40">
+      <div
+        v-else
+        class="text-3xl py-10 mx-auto"
+      >
+        How does it work...
+      </div>
+
+      <div class="mx-auto lg:flex 2xl:justify-center lg:gap-40 py-20 lg:overflow-x-auto overflow-y-hidden lg:w-full">
         <div
+          v-if="width > LG"
           data-aos="fade-up"
           data-aos-delay="1000"
           data-aos-once="true"
           data-aos-duration="1000"
-          class="w-[28rem] bg-gray-800 rounded-lg p-10 text-2xl"
+          class="w-[400px] bg-gray-800 rounded-lg text-2xl p-10 my-5"
         >
           Add your tasks
           <AddTaskExample />
         </div>
         <div
+          v-else
+          class="w-[355px] sm:w-[400px] bg-gray-800 rounded-lg text-2xl p-10 my-5"
+        >
+          Add your tasks
+          <AddTaskExample />
+        </div>
+        <div
+          v-if="width > LG"
           data-aos="fade-up"
           data-aos-delay="1400"
           data-aos-once="true"
-          class="w-[28rem] bg-gray-800 rounded-lg p-10 text-2xl"
+          class="w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5"
         >
           Assign them
           <AssignTaskExample />
-          <div class="bg-gradient-to-r from-pink-500 to-rose-500" />
+          <!-- <div class="bg-gradient-to-r from-pink-500 to-rose-500" /> -->
         </div>
         <div
+          v-else
+          class="w-[355px] sm:w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5"
+        >
+          Assign them
+          <AssignTaskExample />
+        </div>
+        <div
+          v-if="width > LG"
           data-aos="fade-up"
           data-aos-delay="1800"
           data-aos-once="true"
           data-aos-duration="1000"
-          class="w-[28rem] bg-gray-800 rounded-lg p-10 text-2xl"
+          class="w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
         >
           Be productive
           <FinishedTasksExample />
         </div>
-        <div class="flex justify-center items-center col-span-3 text-2xl py-20">
-          <div class="text-gray-500 text-3xl px-2">
-            „
-          </div>
-          <div class="italic">
-            The productivity of work is not the responsibility of the worker but of the manager.
-          </div>
-          <div class="text-gray-500 text-3xl px-2">
-            ”
-          </div>
-          ~ Peter Drucker
+        <div
+          v-else
+          class="w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
+        >
+          Be productive
+          <FinishedTasksExample />
         </div>
+      </div>
+      <div class="flex justify-center items-center col-span-3 text-2xl py-20">
+        <div class="text-gray-500 text-3xl px-2">
+          „
+        </div>
+        <div class="italic">
+          The productivity of work is not the responsibility of the worker but of the manager.
+        </div>
+        <div class="text-gray-500 text-3xl px-2">
+          ”
+        </div>
+        ~ Peter Drucker
       </div>
     </div>
   </div>
