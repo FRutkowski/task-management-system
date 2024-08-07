@@ -9,12 +9,19 @@ const LG = 1024
 const XL = 1536
 
 const { width } = useWindowSize()
+const review: Review = {
+  ID: '2',
+  name: 'Alina',
+  avatar: './alina.jpg',
+  text: 'everything was awesome!'
+}
+
 </script>
 
 <template>
   <div class="overflow-hidden">
     <!-- <div class="absolute py-32 px-96 h-[89.5dvh] w-screen bg-gradient-to-r from-purple-500 from-0% via-rose-400 via-40% to-red-500 to-95%"> -->
-    <div class="lg:flex justify-center h-[89.5dvh] w-full py-32 inset-0 top-0 left-0 ">
+    <div class="lg:flex justify-center h-[89.5dvh] w-full py-32 sm:py-16 md:py-32 inset-0 top-0 left-0">
       <div
         class="text-white font-bold text-[2.9rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-8xl px-10"
       >
@@ -53,11 +60,11 @@ const { width } = useWindowSize()
           data-aos-delay="1000"
           data-aos-once="true"
           data-aos-duration="1500"
-          class="flex text-[0.4em] py-28 items-center lg:min-w-[900px]"
+          class="sm:flex text-[0.4em] py-28 md:py-28 items-center lg:min-w-[900px]"
         >
           Application for managing tasks.
-          <button class="ml-auto rounded-full border-2 border-white w-64 h-12 text-xl bg-transparent delay-150 duration-100 hover:text-black hover:bg-white">
-            Try it yourself
+          <button class="ml-auto rounded-full border-2 border-white w-full my-8 sm:w-64 h-14 text-xl bg-transparent delay-150 duration-100 hover:text-black hover:bg-white">
+            Try it now
           </button>
         </div>
       </div>
@@ -125,19 +132,49 @@ const { width } = useWindowSize()
           data-aos-delay="1800"
           data-aos-once="true"
           data-aos-duration="1000"
-          class="w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
+          class="w-[355px] sm:w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
         >
           Be productive
           <FinishedTasksExample />
         </div>
         <div
           v-else
-          class="w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
+          class="w-[355px] sm:w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
         >
           Be productive
           <FinishedTasksExample />
         </div>
       </div>
+      <div
+        v-if="width > LG"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-duration="1000"
+        class="text-3xl py-40 mx-auto"
+      >
+        We helped a lot of people...
+      </div>
+      <div
+        v-else
+        class="text-3xl py-10 mx-auto"
+      >
+        We helped a lot of people...
+      </div>
+      <ReviewCard
+        v-if="width > LG"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-duration="1000"
+        :review="review"
+        class="my-10"
+      />
+      <ReviewCard
+        v-else
+        :review="review"
+        class="my-10"
+      />
       <div class="flex justify-center items-center col-span-3 text-2xl py-20">
         <div class="text-gray-500 text-3xl px-2">
           „

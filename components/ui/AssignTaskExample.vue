@@ -27,14 +27,14 @@
         </div>
       </div>
     </div>
-    <div class="absolute top-40 left-24 drag-task">
+    <div class="absolute top-40 left-24 drag-task z-10">
       <BlankTask
         :border="true"
         border-color="indigo"
       />
     </div>
 
-    <div class="absolute top-10 right-0">
+    <div class="absolute top-10 right-0 z-0">
       <div class="bg-gray-200 p-5 pr-0 rounded-tl rounded-bl w-[7rem] h-[16rem] text-black text-xs">
         <header class="flex font-bold mb-4 items-center">
           <div class="w-[0.30rem] h-[0.30rem] bg-slate-400" />
