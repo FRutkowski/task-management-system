@@ -11,3 +11,10 @@ export interface Column {
   title: string
   tasks: Task[]
 }
+
+export interface Review {
+  id: ID
+  name: string
+  text: string
+  avatar: string
+}
