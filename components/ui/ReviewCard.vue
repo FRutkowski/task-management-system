@@ -4,9 +4,9 @@ const props = defineProps<{
 }>()
 console.log('It exists!')
 </script>
-
+<!--  sm:h-[28rem]  xl:h-[20.5rem] -->
 <template>
-  <div class="bg-gray-800 rounded-lg w-[600px] h-72 p-8">
+  <div class="bg-gray-800 rounded-lg min-w-[20rem] sm:min-w-[22rem] max-h-min xl:min-w-[30rem] p-8">
     <div class="flex ">
       <Avatar
         class="ml-0"
@@ -18,9 +18,7 @@ console.log('It exists!')
       </div>
     </div>
     <div class="text-xl italic py-6">
-      „BeEfficient has completely transformed how I manage my daily tasks.
-      The drag-and-drop feature is incredibly intuitive and helps me keep everything organized effortlessly.
-      I love the flexibility it offers with different planning methods too!”
+      {{ '„' + review.text + '”' }}„”
     </div>
   </div>
 </template>
