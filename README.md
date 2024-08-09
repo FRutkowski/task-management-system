@@ -5,7 +5,7 @@ This software will allow you to plan tasks using own implementation of a Trello 
 Current state:
 
 - [x] Basic Trello Board functionalities
-- [ ] Main page 
+- [x] Landing page 
 - [ ] Login
 - [ ] Register
 - [ ] Saving Tasks
