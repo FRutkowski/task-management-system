@@ -2,7 +2,6 @@
 const props = defineProps<{
   review: Review
 }>()
-console.log('It exists!')
 </script>
 <!--  sm:h-[28rem]  xl:h-[20.5rem] -->
 <template>

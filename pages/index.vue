@@ -8,7 +8,7 @@ const MD = 768
 const LG = 1024
 const XL = 1536
 
-const { width } = useWindowSize()
+const { width, height } = useWindowSize()
 const reviews: Review[] = [
   {
     ID: '1',
@@ -71,7 +71,10 @@ onMounted(() => {
 <template>
   <div class="overflow-hidden">
     <!-- <div class="absolute py-32 px-96 h-[89.5dvh] w-screen bg-gradient-to-r from-purple-500 from-0% via-rose-400 via-40% to-red-500 to-95%"> -->
-    <div class="lg:flex justify-center h-[89.5dvh] w-full py-32 sm:py-16 md:py-32 inset-0 top-0 left-0">
+    <div
+      class="lg:flex justify-center h-[89.5dvh] w-full py-32 sm:py-16 md:py-32 inset-0 top-0 left-0"
+      :class="height < 850 && width > 640 ? 'h-[53rem]' : 'h-[89.5dvh]'"
+    >
       <div
         class="text-white font-bold text-[2.9rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-8xl px-10"
       >
@@ -120,7 +123,8 @@ onMounted(() => {
       </div>
     </div>
     <div
-      class="flex flex-col h-[460dvh] bg-gray-950 text-white py-14 sm:px-24"
+      id="product"
+      class="flex flex-col min-h-max bg-gray-950 text-white py-14 sm:px-24"
     >
       <div
         v-if="width > LG"
@@ -134,26 +138,26 @@ onMounted(() => {
       </div>
       <div
         v-else
-        class="text-3xl py-20 mx-auto"
+        class="text-2xl sm:text-3xl py-20 mx-auto"
       >
         How does it work...
       </div>
       <!-- h-[150rem] lg:h-[50rem] -->
-      <div class="mx-auto lg:flex 2xl:justify-center lg:gap-40 py-20 lg:overflow-x-auto overflow-y-hidden lg:w-full min-h-min">
+      <div class="mx-auto lg:flex 2xl:justify-center lg:gap-40 py-10 lg:overflow-x-auto overflow-y-hidden lg:w-full min-h-max">
         <div
           v-if="width > LG"
           data-aos="fade-up"
           data-aos-delay="1000"
           data-aos-once="true"
           data-aos-duration="1000"
-          class="w-[25rem] bg-gray-800 rounded-lg text-2xl p-10 my-5"
+          class="w-[25rem] min-h-min bg-gray-800 rounded-lg text-2xl p-10 my-5"
         >
           Add your tasks
           <AddTaskExample />
         </div>
         <div
           v-else
-          class="w-[355px] sm:w-[400px] bg-gray-800 rounded-lg text-2xl p-10 my-5"
+          class="w-[22.1rem] min-h-min sm:w-[25rem] bg-gray-800 rounded-lg text-xl sm:text-2xl p-10 my-5"
         >
           Add your tasks
           <AddTaskExample />
@@ -163,7 +167,7 @@ onMounted(() => {
           data-aos="fade-up"
           data-aos-delay="1400"
           data-aos-once="true"
-          class="w-[25rem] bg-gray-800 rounded-lg p-10 text-2xl my-5"
+          class="w-[25rem] min-h-min bg-gray-800 rounded-lg p-10 text-2xl my-5"
         >
           Assign them
           <AssignTaskExample />
@@ -171,7 +175,7 @@ onMounted(() => {
         </div>
         <div
           v-else
-          class="w-[355px] sm:w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5"
+          class="w-[22.1rem] min-h-min sm:w-[25rem] bg-gray-800 rounded-lg p-10 text-xl sm:text-2xl my-5"
         >
           Assign them
           <AssignTaskExample />
@@ -182,24 +186,25 @@ onMounted(() => {
           data-aos-delay="1800"
           data-aos-once="true"
           data-aos-duration="1000"
-          class="w-[25rem] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
+          class="w-[25rem] min-h-min bg-gray-800 rounded-lg p-10 text-2xl my-5 "
         >
           Plan everything
           <FinishedTasksExample />
         </div>
         <div
           v-else
-          class="w-[355px] sm:w-[400px] bg-gray-800 rounded-lg p-10 text-2xl my-5 "
+          class="w-[22.1rem] min-h-min sm:w-[25rem] bg-gray-800 rounded-lg p-10 text-xl sm:text-2xl my-5 "
         >
           Plan everything
           <FinishedTasksExample />
         </div>
       </div>
-      <div class="grid grid-cols-2 px-10 mx-auto gap-8 mt-40">
+      <div class="grid grid-cols-2 px-4 xl:px-8 2xl:px-10 mx-auto gap-8 mt-14 lg:mt-40">
         <div
-          class="text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl"
+          class=" text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mt-14 lg:mt-40"
+          :class="width <= LG ? 'col-span-3' : ''"
           data-aos="fade-right"
-          data-aos-delay="2500"
+          data-aos-delay="100"
           data-aos-once="true"
           data-aos-duration="2000"
         >
@@ -212,27 +217,30 @@ onMounted(() => {
           </div>
         </div>
         <NuxtImg
+          v-if="width > LG"
+          class="rounded-lg max-h-[40rem] mt-40"
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           data-aos="fade-right"
-          data-aos-delay="2500"
+          data-aos-delay="100"
           data-aos-once="true"
           data-aos-duration="2000"
-          class="rounded-lg max-h-[40rem]"
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
         <NuxtImg
-          data-aos="fade-left"
-          data-aos-delay="2500"
-          data-aos-once="true"
-          data-aos-duration="2000"
+          v-if="width > LG"
           class="rounded-lg mt-40 max-h-[40rem]"
           src="https://plus.unsplash.com/premium_photo-1705178702953-a3048924f209?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        />
-        <div
           data-aos="fade-left"
-          data-aos-delay="2500"
+          data-aos-delay="100"
           data-aos-once="true"
           data-aos-duration="2000"
-          class="text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mt-40"
+        />
+        <div
+          class=" text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mt-14 lg:mt-40"
+          :class="width <= LG ? 'col-span-3' : ''"
+          data-aos="fade-left"
+          data-aos-delay="100"
+          data-aos-once="true"
+          data-aos-duration="2000"
         >
           Long-Term Task Planning with Calendar
           <div class="text-[0.70em] 2xl:text-2xl pt-2 sm:pt-2 md:pt-4 lg:pt-6 xl:pt-8 2xl:pt-10">
@@ -243,9 +251,10 @@ onMounted(() => {
           </div>
         </div>
         <div
-          class="text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mt-40"
+          class=" text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mt-14 lg:mt-40"
+          :class="width <= LG ? 'col-span-3' : ''"
           data-aos="fade-right"
-          data-aos-delay="2500"
+          data-aos-delay="100"
           data-aos-once="true"
           data-aos-duration="2000"
         >
@@ -257,8 +266,9 @@ onMounted(() => {
           </div>
         </div>
         <NuxtImg
+          v-if="width > LG"
           data-aos="fade-right"
-          data-aos-delay="2500"
+          data-aos-delay="100"
           data-aos-once="true"
           data-aos-duration="2000"
           class="rounded-lg mt-40 max-h-[40rem]"
@@ -269,19 +279,21 @@ onMounted(() => {
       </div>
       <div
         v-if="width > LG"
+        id="reviews"
         data-aos="fade-up"
         data-aos-delay="500"
         data-aos-once="true"
         data-aos-duration="1000"
-        class="text-3xl pt-60 pb-40 mx-auto"
+        class="text-3xl pt-40 pb-20 mx-auto"
       >
-        Our product is used for many people...
+        Used for many people...
       </div>
       <div
         v-else
-        class="text-3xl pt-60 pb-40 mx-auto"
+        id="reviews"
+        class="text-2xl sm:text-3xl pt-40 pb-20 mx-auto"
       >
-        Our product is used for many people...
+        Used for many people...
       </div>
       <!-- <div class="flex max-w-[1200px] scroller gap-4 overflow-hidden pt-20 px-4 h-[69rem] sm:h-[63rem] xl:h-[45rem] max-h-[50rem]" data-direction="right" data-speed="slow"> -->
       <div
@@ -298,6 +310,16 @@ onMounted(() => {
             :review="review"
           />
         </div>
+      </div>
+      <div
+        class="px-4 text-center text-3xl pt-40 pb-20 mx-auto"
+      >
+        Start to achieve your goals with us
+      </div>
+      <div class="mx-auto min-w-min rounded-xl bg-gradient-to-tr from-pink-700 to-blue-700 p-0.5 shadow-lg">
+        <button class="flex-1 text-xl bg-gray-800 px-6 py-3 rounded-xl w-80 sm:w-96">
+          Sign Up For Free
+        </button>
       </div>
     </div>
   </div>
