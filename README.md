@@ -11,3 +11,6 @@ Current state:
 - [ ] Saving Tasks
 - [ ] Add Task Date
 - [ ] any other ideas I'll come up with while creating this
+
+# Landing Page Video
+https://drive.google.com/file/d/1jslP7EDMKM5pNThqOrlhsSXpYby1J_6s/view?usp=sharing
