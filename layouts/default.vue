@@ -25,7 +25,7 @@ const scrollToHTMLElement = (id: string) => {
       >
         <!-- Tutaj będzie nawigacja -->
         <nav
-          class="flex bg-black p-9 sticky top-0 z-50 shadow-md items-center"
+          class="flex h-32 bg-black p-9 sticky top-0 z-50 shadow-md items-center"
           :class="arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-gray-900/40'"
         >
           <img
@@ -57,6 +57,7 @@ const scrollToHTMLElement = (id: string) => {
           </NavButton>
           <NavButtonLink
             :hidden="!(width > 1140)"
+            text-color="red"
             class="ml-auto"
             to="/login"
           >
@@ -64,6 +65,7 @@ const scrollToHTMLElement = (id: string) => {
           </NavButtonLink>
           <NavButtonLink
             :hidden="!(width > 1140)"
+            text-color="red"
             class="sm:mr-24 2xl:mr-64"
             to="/register"
           >

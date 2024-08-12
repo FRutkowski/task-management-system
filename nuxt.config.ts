@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   ui: {
     global: true
   },
+  // app: {
+  //   layoutTransition: { name: 'layout', mode: 'out-in' }
+  // },
 
   components: [
     { path: '~/components/buttons', pathPrefix: false },

@@ -72,8 +72,8 @@ onMounted(() => {
   <div class="overflow-hidden">
     <!-- <div class="absolute py-32 px-96 h-[89.5dvh] w-screen bg-gradient-to-r from-purple-500 from-0% via-rose-400 via-40% to-red-500 to-95%"> -->
     <div
-      class="lg:flex justify-center h-[89.5dvh] w-full py-32 sm:py-16 md:py-32 inset-0 top-0 left-0"
-      :class="height < 850 && width > 640 ? 'h-[53rem]' : 'h-[89.5dvh]'"
+      class="lg:flex justify-center h-[86.7dvh] w-full py-32 sm:py-16 md:py-32 inset-0 top-0 left-0"
+      :class="height < 850 && width > 640 ? 'h-[53rem]' : 'h-[86.7dvh]'"
     >
       <div
         class="text-white font-bold text-[2.9rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-8xl px-10"
