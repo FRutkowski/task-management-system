@@ -17,7 +17,7 @@ const scrollToHTMLElement = (id: string) => {
 
 <template>
   <!-- Tutaj będzie nawigacja -->
-  <div class="min-h-screen bg-gradient-to-tr from-red-600 from-0% via-pink-700 via-40% to-purple-500 to-100%">
+  <div class="flex flex-col min-h-screen bg-white sm:bg-gradient-to-tr sm:from-red-600 sm:from-0% sm:via-pink-700 sm:via-40% sm:to-purple-500 sm:to-100%">
     <nav
       class="h-32 flex bg-black p-9 sticky top-0 z-50 shadow-md items-center"
       :class="arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-gray-900/40'"
@@ -79,7 +79,7 @@ const scrollToHTMLElement = (id: string) => {
     </div>
 
     <footer
-      class="flex flex-col items-center bg-zinc-50 text-center text-surface dark:bg-neutral-700 dark:text-white"
+      class="flex flex-col items-center bg-zinc-50 text-center text-surface dark:bg-neutral-700 dark:text-white mt-auto"
     >
       <div class="container pt-9">
         <!-- Social media icons container -->
