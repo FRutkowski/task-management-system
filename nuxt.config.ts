@@ -21,5 +21,11 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  nitro: { prerender: { failOnError: false } }
+
+  nitro: {
+    prerender: {
+      routes: ['/200.html', '/404.html'],
+      ignore: ['/']
+    }
+  }
 })
