@@ -14,14 +14,14 @@ const scrollToHTMLElement = (id: string) => {
   el.scrollIntoView({ behavior: 'smooth' })
 }
 
-watch(width, (newWidth, oldWidth) => {
+watch(width, (newWidth) => {
   if (newWidth >= LG) {
     toggle.value = false
   }
 })
 
 const toggle = ref(false)
-const toggleNavBar = (event: Event) => {
+const toggleNavBar = () => {
   toggle.value = !toggle.value
 }
 </script>
