@@ -20,12 +20,5 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {}
     }
-  },
-
-  nitro: {
-    prerender: {
-      routes: ['/200.html', '/404.html'],
-      ignore: ['/']
-    }
   }
 })
