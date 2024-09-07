@@ -8,9 +8,5 @@
       Trello board
     </h1>
     <DashBoard class="p-10" />
-    <DashBoard class="p-10" />
-    <DashBoard class="p-10" />
-    <DashBoard class="p-10" />
-    <DashBoard class="p-10" />
   </div>
 </template>
