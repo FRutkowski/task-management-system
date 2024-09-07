@@ -20,5 +20,6 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {}
     }
-  }
+  },
+  nitro: { prerender: { failOnError: false } }
 })
