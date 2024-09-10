@@ -42,4 +42,4 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Run ESLint
-        run: pnpm lint
+        run: pnpm eslint
