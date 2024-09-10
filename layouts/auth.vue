@@ -13,80 +13,91 @@ const scrollToHTMLElement = (id: string) => {
   const el: HTMLElement = document.getElementById(id)
   el.scrollIntoView({ behavior: 'smooth' })
 }
+
+watch(width, (newWidth, oldWidth) => {
+  if (newWidth >= LG) {
+    toggle.value = false
+  }
+})
+
+const toggle = ref(false)
+const toggleNavBar = (event: Event) => {
+  toggle.value = !toggle.value
+}
 </script>
 
 <template>
-  <!-- Tutaj będzie nawigacja -->
-  <div class="flex flex-col min-h-screen bg-white sm:bg-gradient-to-tr sm:from-red-600 sm:from-0% sm:via-pink-700 sm:via-40% sm:to-purple-500 sm:to-100%">
+  <div class="flex flex-col bg-white sm:bg-gradient-to-tr sm:from-red-600 sm:from-0% sm:via-pink-700 sm:via-40% sm:to-purple-500 sm:to-100% min-h-screen overflow-clip">
     <nav
-      class="h-32 flex bg-black p-9 sticky top-0 z-50 shadow-md items-center"
-      :class="arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-gray-900/40'"
+      class="top-0 z-40 sticky flex lg:items-center shadow-md p-9 h-32 duration-200 navBar"
+      :class="[arrivedState.top ? 'bg-black' : 'backdrop-blur-xl bg-gray-900/40', toggle ? 'h-[22rem]' : 'h-32']"
     >
       <img
         src="~/assets/icons/logo2.svg"
-        class=" sm:ml-10 2xl:ml-64 mr-10 hover:cursor-pointer"
-        :class="width > 400 ? 'h-[3.4rem]' : 'h-[2.5rem]'"
+        class="left-10 absolute sm:ml-10 2xl:ml-56 h-[3.4rem] hover:cursor-pointer"
         @click="navigateTo('/')"
       >
-      <NavButtonLink
-        :hidden="!(width > 750)"
-        text-color="red"
-        to="/"
-        @click="scrollToHTMLElement('main')"
+      <div
+        class="lg:top-[10%] left-0 z-50 absolute lg:sticky flex lg:flex-row flex-col items-center gap-4 mr-0 lg:mr-24 lg:ml-72 2xl:ml-[31rem] pb-3 w-full durration-200 navLinks"
+        :class="toggle ? 'top-[30%]' : 'top-[-300%]'"
       >
-        Home
-      </NavButtonLink>
-      <NavButtonLink
-        :hidden="!(width > 750)"
-        text-color="red"
-        to="/"
-        @click="scrollToHTMLElement('product')"
-      >
-        Product
-      </NavButtonLink>
-      <NavButtonLink
-        :hidden="!(width > 950)"
-        text-color="red"
-        to="/"
-        @click="scrollToHTMLElement('reviews')"
-      >
-        Reviews
-      </NavButtonLink>
-      <NavButtonLink
-        :hidden="!(width > 1140)"
-        class="ml-auto"
-        to="/login"
-      >
-        Login
-      </NavButtonLink>
-      <NavButtonLink
-        :hidden="!(width > 1140)"
-        class="sm:mr-24 2xl:mr-64"
-        to="/register"
-      >
-        Register
-      </NavButtonLink>
+        <NavButtonLink
+          text-color="red"
+          to="/"
+          @click="scrollToHTMLElement('main')"
+        >
+          Home
+        </NavButtonLink>
+        <NavButtonLink
+          text-color="red"
+          to="/"
+          @click="scrollToHTMLElement('product')"
+        >
+          Product
+        </NavButtonLink>
+        <NavButtonLink
+          text-color="red"
+          to="/"
+          @click="scrollToHTMLElement('reviews')"
+        >
+          Reviews
+        </NavButtonLink>
+        <NavButtonLink
+          class="lg:ml-auto"
+          to="/login"
+        >
+          Login
+        </NavButtonLink>
+        <NavButtonLink
+          to="/register"
+        >
+          Register
+        </NavButtonLink>
+      </div>
       <Icon
-        v-if="width <= 1140"
-        name="material-symbols:menu-rounded"
-        class="w-12 h-12 ml-auto"
+        :name="toggle ? 'material-symbols:close' : 'material-symbols:menu-rounded'"
         style="color: white"
+        class="ml-auto p-1 rounded-lg w-14 h-14 duration-800 lg:invisible visible"
+        @click="toggleNavBar"
       />
     </nav>
     <!-- Tutaj będzie strona -->
-    <div class="h-[86.7dvh]">
+    <div
+      class="mt-40 sm:mt-0"
+      :class="width < 500 || height < 600 ? 'min-h-min' : 'h-[86.7dvh]'"
+    >
       <slot />
     </div>
 
     <footer
-      class="flex flex-col items-center bg-zinc-50 text-center text-surface dark:bg-neutral-700 dark:text-white mt-auto"
+      class="flex flex-col items-center bg-zinc-50 dark:bg-neutral-700 mt-auto text-center text-surface dark:text-white"
     >
-      <div class="container pt-9">
+      <div class="pt-9 container">
         <!-- Social media icons container -->
-        <div class="mb-6 flex justify-center space-x-2">
+        <div class="flex justify-center space-x-2 mb-6">
           <NuxtLink
             type="button"
-            class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+            class="bg-transparent hover:bg-neutral-100 dark:hover:bg-secondary-900 p-3 rounded-full focus:ring-0 font-medium text-surface dark:text-white uppercase leading-normal transition duration-150 ease-in-out focus:outline-none"
             data-twe-ripple-init
           >
             <span class="[&>svg]:h-5 [&>svg]:w-5">
@@ -104,7 +115,7 @@ const scrollToHTMLElement = (id: string) => {
           </NuxtLink>
           <NuxtLink
             type="button"
-            class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+            class="bg-transparent hover:bg-neutral-100 dark:hover:bg-secondary-900 p-3 rounded-full focus:ring-0 font-medium text-surface dark:text-white uppercase leading-normal transition duration-150 ease-in-out focus:outline-none"
             data-twe-ripple-init
           >
             <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -123,7 +134,7 @@ const scrollToHTMLElement = (id: string) => {
 
           <NuxtLink
             type="button"
-            class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+            class="bg-transparent hover:bg-neutral-100 dark:hover:bg-secondary-900 p-3 rounded-full focus:ring-0 font-medium text-surface dark:text-white uppercase leading-normal transition duration-150 ease-in-out focus:outline-none"
             data-twe-ripple-init
           >
             <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -142,7 +153,7 @@ const scrollToHTMLElement = (id: string) => {
 
           <NuxtLink
             type="button"
-            class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+            class="bg-transparent hover:bg-neutral-100 dark:hover:bg-secondary-900 p-3 rounded-full focus:ring-0 font-medium text-surface dark:text-white uppercase leading-normal transition duration-150 ease-in-out focus:outline-none"
             data-twe-ripple-init
           >
             <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -162,7 +173,7 @@ const scrollToHTMLElement = (id: string) => {
           <NuxtLink
             to="https://www.linkedin.com/in/filip-rutkowski-6519b32a0/"
             type="button"
-            class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+            class="bg-transparent hover:bg-neutral-100 dark:hover:bg-secondary-900 p-3 rounded-full focus:ring-0 font-medium text-surface dark:text-white uppercase leading-normal transition duration-150 ease-in-out focus:outline-none"
             data-twe-ripple-init
           >
             <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -182,7 +193,7 @@ const scrollToHTMLElement = (id: string) => {
           <NuxtLink
             to="https://github.com/FRutkowski/task-managment-system"
             type="button"
-            class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+            class="bg-transparent hover:bg-neutral-100 dark:hover:bg-secondary-900 p-3 rounded-full focus:ring-0 font-medium text-surface dark:text-white uppercase leading-normal transition duration-150 ease-in-out focus:outline-none"
             data-twe-ripple-init
           >
             <span class="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -202,7 +213,7 @@ const scrollToHTMLElement = (id: string) => {
       </div>
 
       <!--Copyright section-->
-      <div class="w-full bg-black/5 p-4 text-center">
+      <div class="bg-black/5 p-4 w-full text-center">
         © 2024 Copyright:
         <NuxtLink href="https://github.com/FRutkowski/task-managment-system">
           BeEfficient
