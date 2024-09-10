@@ -30,4 +30,5 @@ definePageMeta({
         </button>
       </form>
     </div>
-  </template>
+  </div>
+</template>
