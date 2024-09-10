@@ -13,27 +13,27 @@ const reviews: Review[] = [
   {
     ID: '1',
     name: 'Anna',
-    avatar: './anna.jpg',
+    avatar: './reviews/anna.jpg',
     text: 'BeEfficient has completely transformed how I manage my daily tasks. The drag-and-drop feature is incredibly intuitive and helps me keep everything organized effortlessly.  I love the flexibility it offers with different planning methods too!'
   }, {
     ID: '2',
     name: 'John',
-    avatar: './john.jpeg',
+    avatar: './reviews/john.jpeg',
     text: 'I have tried several task management apps, but BeEfficient stands out. The user interface is clean and easy to navigate, and the ability to drag tasks between different boards is a game-changer. Highly recommended for anyone looking to boost their productivity.'
   }, {
     ID: '3',
     name: 'Emma',
-    avatar: './emma.jpeg',
+    avatar: './reviews/emma.jpeg',
     text: 'BeEfficient is exactly what I needed to get my tasks under control. The customizable cards and boards allow me to tailor the app to my workflow. The drag-and-drop functionality makes it so simple to prioritize my to-do list!'
   }, {
     ID: '4',
     name: 'Xavier',
-    avatar: './xavier.jpeg',
+    avatar: './reviews/xavier.jpeg',
     text: 'Managing tasks has never been easier since I started using BeEfficient. The various planning options cater to all my needs, and the drag-and-drop feature is perfect for quickly reorganizing my tasks. A must-have app for busy professionals'
   }, {
     ID: '5',
     name: 'Alexandra',
-    avatar: './alexandra.jpeg',
+    avatar: './reviews/alexandra.jpeg',
     text: 'BeEfficient is a brilliant app for task management. The drag-and-drop feature is intuitive and helps me keep my tasks organized with minimal effort. The different planning methods ensure I can adapt the app to suit my needs perfectly'
   }
 ]
@@ -72,8 +72,8 @@ onMounted(() => {
   <div class="overflow-hidden">
     <!-- <div class="absolute py-32 px-96 h-[89.5dvh] w-screen bg-gradient-to-r from-purple-500 from-0% via-rose-400 via-40% to-red-500 to-95%"> -->
     <div
-      class="lg:flex justify-center h-[89.5dvh] w-full py-32 sm:py-16 md:py-32 inset-0 top-0 left-0"
-      :class="height < 850 && width > 640 ? 'h-[53rem]' : 'h-[89.5dvh]'"
+      class="lg:flex justify-center h-[86.7dvh] w-full py-32 sm:py-16 md:py-32 inset-0 top-0 left-0"
+      :class="height < 850 && width > 640 ? 'h-[53rem]' : 'h-[86.7dvh]'"
     >
       <div
         class="text-white font-bold text-[2.9rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-8xl px-10"
@@ -153,14 +153,14 @@ onMounted(() => {
           class="w-[25rem] min-h-min bg-gray-800 rounded-lg text-2xl p-10 my-5"
         >
           Add your tasks
-          <AddTaskExample />
+          <LazyAddTaskExample />
         </div>
         <div
           v-else
           class="w-[22.1rem] min-h-min sm:w-[25rem] bg-gray-800 rounded-lg text-xl sm:text-2xl p-10 my-5"
         >
           Add your tasks
-          <AddTaskExample />
+          <LazyAddTaskExample />
         </div>
         <div
           v-if="width > LG"
@@ -170,7 +170,7 @@ onMounted(() => {
           class="w-[25rem] min-h-min bg-gray-800 rounded-lg p-10 text-2xl my-5"
         >
           Assign them
-          <AssignTaskExample />
+          <LazyAssignTaskExample />
           <!-- <div class="bg-gradient-to-r from-pink-500 to-rose-500" /> -->
         </div>
         <div
@@ -178,7 +178,7 @@ onMounted(() => {
           class="w-[22.1rem] min-h-min sm:w-[25rem] bg-gray-800 rounded-lg p-10 text-xl sm:text-2xl my-5"
         >
           Assign them
-          <AssignTaskExample />
+          <LazyAssignTaskExample />
         </div>
         <div
           v-if="width > LG"
@@ -189,14 +189,14 @@ onMounted(() => {
           class="w-[25rem] min-h-min bg-gray-800 rounded-lg p-10 text-2xl my-5 "
         >
           Plan everything
-          <FinishedTasksExample />
+          <LazyFinishedTasksExample />
         </div>
         <div
           v-else
           class="w-[22.1rem] min-h-min sm:w-[25rem] bg-gray-800 rounded-lg p-10 text-xl sm:text-2xl my-5 "
         >
           Plan everything
-          <FinishedTasksExample />
+          <LazyFinishedTasksExample />
         </div>
       </div>
       <div class="grid grid-cols-2 px-4 xl:px-8 2xl:px-10 mx-auto gap-8 mt-14 lg:mt-40">
@@ -216,7 +216,7 @@ onMounted(() => {
             making it an ideal tool for managing group projects and ensuring everyone is on the same page.
           </div>
         </div>
-        <NuxtImg
+        <LazyNuxtImg
           v-if="width > LG"
           class="rounded-lg max-h-[40rem] mt-40"
           src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -225,7 +225,7 @@ onMounted(() => {
           data-aos-once="true"
           data-aos-duration="2000"
         />
-        <NuxtImg
+        <LazyNuxtImg
           v-if="width > LG"
           class="rounded-lg mt-40 max-h-[40rem]"
           src="https://plus.unsplash.com/premium_photo-1705178702953-a3048924f209?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -265,7 +265,7 @@ onMounted(() => {
             Even if you're new to task management apps, BeEfficient's user-friendly design ensures a smooth and pleasant experience, making productivity accessible to everyone.
           </div>
         </div>
-        <NuxtImg
+        <LazyNuxtImg
           v-if="width > LG"
           data-aos="fade-right"
           data-aos-delay="100"
@@ -304,7 +304,7 @@ onMounted(() => {
         <div
           class="scroller__inner"
         >
-          <ReviewCard
+          <LazyReviewCard
             v-for="review in reviews"
             :key="review.ID"
             :review="review"

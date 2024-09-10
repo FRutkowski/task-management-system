@@ -6,6 +6,10 @@ export default defineNuxtConfig({
     global: true
   },
 
+  // app: {
+  //   layoutTransition: { name: 'layout', mode: 'out-in' }
+  // },
+
   components: [
     { path: '~/components/buttons', pathPrefix: false },
     { path: '~/components/dashboard', pathPrefix: false },
@@ -21,5 +25,7 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {}
     }
-  }
+  },
+
+  compatibilityDate: '2024-09-07'
 })
