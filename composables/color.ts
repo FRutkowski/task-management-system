@@ -1,137 +1,88 @@
-export const useTextColor = (color: MaybeRef) => {
+import { computed, toValue, type MaybeRef } from 'vue'
+
+const textClasses: Record<string, string> = {
+  red: 'text-red-400',
+  orange: 'text-orange-400',
+  amber: 'text-amber-400',
+  yellow: 'text-yellow-400',
+  lime: 'text-lime-400',
+  green: 'text-green-400',
+  emerald: 'text-emerald-400',
+  teal: 'text-teal-400',
+  cyan: 'text-cyan-400',
+  sky: 'text-sky-400',
+  blue: 'text-blue-400',
+  indigo: 'text-indigo-400',
+  violet: 'text-violet-400',
+  fuchsia: 'text-fuchsia-400',
+  pink: 'text-pink-400',
+  rose: 'text-rose-400',
+  purple: 'text-purple-400'
+}
+
+export const useTextColor = (color: MaybeRef<string | undefined>) => {
   const textColor = computed(() => {
-    switch (color.value) {
-      case 'red':
-        return 'text-red-400'
-      case 'orange':
-        return 'text-orange-400'
-      case 'amber':
-        return 'text-amber-400'
-      case 'yellow':
-        return 'text-yellow-400'
-      case 'lime':
-        return 'text-lime-400'
-      case 'green':
-        return 'text-green-400'
-      case 'emerland':
-        return 'text-emerland-400'
-      case 'teal':
-        return 'text-teal-400'
-      case 'cyan':
-        return 'text-cyan-400'
-      case 'sky':
-        return 'text-sky-400'
-      case 'blue':
-        return 'text-blue-400'
-      case 'indigo':
-        return 'text-indigo-400'
-      case 'violet':
-        return 'text-violet-400'
-      case 'fuchsia':
-        return 'text-fuchsia-400'
-      case 'pink':
-        return 'text-pink-400'
-      case 'rose':
-        return 'text-rose-400'
-      case 'purple':
-      default:
-        return 'text-purple-400'
-    }
+    const value = toValue(color) ?? 'purple'
+    return textClasses[value] ?? textClasses.purple
   })
 
-  return {
-    textColor
-  }
+  return { textColor }
 }
 
-export const useHoverTextColor = (color: MaybeRef) => {
+const hoverClasses: Record<string, string> = {
+  red: 'hover:text-red-400',
+  orange: 'hover:text-orange-400',
+  amber: 'hover:text-amber-400',
+  yellow: 'hover:text-yellow-400',
+  lime: 'hover:text-lime-400',
+  green: 'hover:text-green-400',
+  emerland: 'hover:text-emerland-400',
+  teal: 'hover:text-teal-400',
+  cyan: 'hover:text-cyan-400',
+  sky: 'hover:text-sky-400',
+  blue: 'hover:text-blue-400',
+  indigo: 'hover:text-indigo-400',
+  violet: 'hover:text-violet-400',
+  fuchsia: 'hover:text-fuchsia-400',
+  pink: 'hover:text-pink-400',
+  rose: 'hover:text-rose-400',
+  purple: 'hover:text-purple-400', // domyślny fallback
+}
+
+export const useHoverTextColor = (color: MaybeRef<string | undefined>) => {
   const onHoverTextColor = computed(() => {
-    switch (color.value) {
-      case 'red':
-        return 'hover:text-red-400'
-      case 'orange':
-        return 'hover:text-orange-400'
-      case 'amber':
-        return 'hover:text-amber-400'
-      case 'yellow':
-        return 'hover:text-yellow-400'
-      case 'lime':
-        return 'hover:text-lime-400'
-      case 'green':
-        return 'hover:text-green-400'
-      case 'emerland':
-        return 'hover:text-emerland-400'
-      case 'teal':
-        return 'hover:text-teal-400'
-      case 'cyan':
-        return 'hover:text-cyan-400'
-      case 'sky':
-        return 'hover:text-sky-400'
-      case 'blue':
-        return 'hover:text-blue-400'
-      case 'indigo':
-        return 'hover:text-indigo-400'
-      case 'violet':
-        return 'hover:text-violet-400'
-      case 'fuchsia':
-        return 'hover:text-fuchsia-400'
-      case 'pink':
-        return 'hover:text-pink-400'
-      case 'rose':
-        return 'hover:text-rose-400'
-      case 'purple':
-      default:
-        return 'hover:text-purple-400'
-    }
+    const value = toValue(color) ?? 'purple' // domyślnie purple, jeśli brak
+    return hoverClasses[value] ?? hoverClasses.purple
   })
 
-  return {
-    onHoverTextColor
-  }
+  return { onHoverTextColor }
 }
 
-export const useBorderColor = (color?: MaybeRef) => {
+const borderClasses: Record<string, string> = {
+  red: 'border-red-600',
+  orange: 'border-orange-600',
+  amber: 'border-amber-600',
+  yellow: 'border-yellow-600',
+  lime: 'border-lime-600',
+  green: 'border-green-600',
+  emerald: 'border-emerald-600',
+  teal: 'border-teal-600',
+  cyan: 'border-cyan-600',
+  sky: 'border-sky-600',
+  blue: 'border-blue-600',
+  indigo: 'border-indigo-600',
+  violet: 'border-violet-600',
+  fuchsia: 'border-fuchsia-600',
+  pink: 'border-pink-600',
+  rose: 'border-rose-600',
+  purple: 'border-purple-600'
+}
+
+export const useBorderColor = (color?: MaybeRef<string | undefined>) => {
   const borderColor = computed(() => {
-    switch (color.value) {
-      case 'red':
-        return 'border-red-600'
-      case 'orange':
-        return 'border-orange-600'
-      case 'amber':
-        return 'border-amber-600'
-      case 'yellow':
-        return 'border-yellow-600'
-      case 'lime':
-        return 'border-lime-600'
-      case 'green':
-        return 'border-green-600'
-      case 'emerland':
-        return 'border-emerland-600'
-      case 'teal':
-        return 'border-teal-600'
-      case 'cyan':
-        return 'border-cyan-600'
-      case 'sky':
-        return 'border-sky-600'
-      case 'blue':
-        return 'border-blue-600'
-      case 'indigo':
-        return 'border-indigo-600'
-      case 'violet':
-        return 'borde-violet-600'
-      case 'fuchsia':
-        return 'border-fuchsia-600'
-      case 'pink':
-        return 'border-pink-600'
-      case 'rose':
-        return 'border-rose-600'
-      case 'purple':
-      default:
-        return 'border-purple-600'
-    }
+    const value = toValue(color) ?? 'purple'
+    return borderClasses[value] ?? borderClasses.purple
   })
 
-  return {
-    borderColor
-  }
+  return { borderColor }
 }

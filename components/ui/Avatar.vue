@@ -6,8 +6,9 @@ const props = defineProps<{
 </script>
 <template>
   <div>
-    <NuxtImg
+    <img
       :src="src"
+      format="jpeg"
       class="w-[65px] h-[65px] border-full align-middle rounded-[50%]"
     />
   </div>

@@ -10,7 +10,8 @@ const LG = 1024
 const XL = 1536
 const { width, height } = useWindowSize()
 const scrollToHTMLElement = (id: string) => {
-  const el: HTMLElement = document.getElementById(id)
+  const el: HTMLElement | null = document.getElementById(id)
+  if (!el) return
   el.scrollIntoView({ behavior: 'smooth' })
 }
 
@@ -31,7 +32,7 @@ const toggleNavBar = () => {
     <ClientOnly>
       <div
         id="main"
-        class="bg-gradient-to-r from-0% from-indigo-900 via-20% via-purple-700 to-100% to-red-500"
+        class="bg-gradient-to-r from-0% from-indigo-700 via-30% via-purple-700 to-100% to-red-500"
         :class="height < 850 ? 'min-h-[53rem]' : 'min-h-screen'"
       >
         <nav
@@ -217,7 +218,7 @@ const toggleNavBar = () => {
 
             <!--Copyright section-->
             <div class="bg-black/5 p-4 w-full text-center">
-              © 2024 Copyright:
+              © 2025 Copyright:
               <NuxtLink href="https://github.com/FRutkowski/task-managment-system">
                 BeEfficient
               </NuxtLink>

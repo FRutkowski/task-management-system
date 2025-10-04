@@ -1,9 +1,10 @@
 <script setup lang="ts">
-const props = defineProps<{
+import type { Review } from '~/types';
+
+defineProps<{
   review: Review
 }>()
 </script>
-<!--  sm:h-[28rem]  xl:h-[20.5rem] -->
 <template>
   <div class="bg-gray-800 rounded-lg min-w-[20rem] sm:min-w-[22rem] max-h-min xl:min-w-[30rem] p-8">
     <div class="flex ">
@@ -17,7 +18,7 @@ const props = defineProps<{
       </div>
     </div>
     <div class="text-xl italic py-6">
-      {{ '„' + review.text + '”' }}„”
+      „{{ review.text }}”
     </div>
   </div>
 </template>

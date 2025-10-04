@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const props = defineProps<{
   to: string
-  textColor: string
+  textColor?: string
 }>()
 
-const textColorProp = toRef(props, 'textColor')
-const { onHoverTextColor: textColorStyle } = useHoverTextColor(textColorProp)
+const textColor = toRef(props, 'textColor')
+const { onHoverTextColor: textColorStyle } = useHoverTextColor(textColor)
 </script>
 <template>
   <NuxtLink

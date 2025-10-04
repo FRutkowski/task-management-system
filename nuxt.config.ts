@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@vueuse/nuxt', 'nuxt-icon', '@nuxt/image', '@nuxtjs/tailwindcss'],
-  target: 'static',
-  ui: {
-    global: true
-  },
+  // target: 'static',
+  // ui: {
+  //   global: true
+  // },
 
   // app: {
   //   layoutTransition: { name: 'layout', mode: 'out-in' }
@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   components: [
     { path: '~/components/buttons', pathPrefix: false },
     { path: '~/components/dashboard', pathPrefix: false },
+    { path: '~/components/examples', pathPrefix: false },
     { path: '~/components/ui', pathPrefix: false },
     '~/components'
   ],

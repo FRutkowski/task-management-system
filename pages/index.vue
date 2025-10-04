@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import type { Review } from '~/types';
 AOS.init()
 
 const SM = 640
@@ -11,29 +12,29 @@ const XL = 1536
 const { width, height } = useWindowSize()
 const reviews: Review[] = [
   {
-    ID: '1',
+    id: '1',
     name: 'Anna',
-    avatar: './reviews/anna.jpg',
+    avatar: '/reviews/anna.jpg',
     text: 'BeEfficient has completely transformed how I manage my daily tasks. The drag-and-drop feature is incredibly intuitive and helps me keep everything organized effortlessly.  I love the flexibility it offers with different planning methods too!'
   }, {
-    ID: '2',
+    id: '2',
     name: 'John',
-    avatar: './reviews/john.jpeg',
+    avatar: '/reviews/john.jpeg',
     text: 'I have tried several task management apps, but BeEfficient stands out. The user interface is clean and easy to navigate, and the ability to drag tasks between different boards is a game-changer. Highly recommended for anyone looking to boost their productivity.'
   }, {
-    ID: '3',
+    id: '3',
     name: 'Emma',
-    avatar: './reviews/emma.jpeg',
+    avatar: '/reviews/emma.jpeg',
     text: 'BeEfficient is exactly what I needed to get my tasks under control. The customizable cards and boards allow me to tailor the app to my workflow. The drag-and-drop functionality makes it so simple to prioritize my to-do list!'
   }, {
-    ID: '4',
+    id: '4',
     name: 'Xavier',
-    avatar: './reviews/xavier.jpeg',
+    avatar: '/reviews/xavier.jpeg',
     text: 'Managing tasks has never been easier since I started using BeEfficient. The various planning options cater to all my needs, and the drag-and-drop feature is perfect for quickly reorganizing my tasks. A must-have app for busy professionals'
   }, {
-    ID: '5',
+    id: '5',
     name: 'Alexandra',
-    avatar: './reviews/alexandra.jpeg',
+    avatar: '/reviews/alexandra.jpeg',
     text: 'BeEfficient is a brilliant app for task management. The drag-and-drop feature is intuitive and helps me keep my tasks organized with minimal effort. The different planning methods ensure I can adapt the app to suit my needs perfectly'
   }
 ]
@@ -48,10 +49,11 @@ onMounted(() => {
   function addAnimation () {
     scrollers.forEach((scroller) => {
     // add data-animated="true" to every `.scroller` on the page
-      scroller.setAttribute('data-animated', true)
+      scroller.setAttribute('data-animated', 'true')
 
       // Make an array from the elements within `.scroller-inner`
       const scrollerInner = scroller.querySelector('.scroller__inner')
+      if (!scrollerInner) return
       const scrollerContent = Array.from(scrollerInner.children)
 
       // For each item in the array, clone it
@@ -59,7 +61,7 @@ onMounted(() => {
       // add it into the `.scroller-inner`
       scrollerContent.forEach((item) => {
         const duplicatedItem = item.cloneNode(true)
-        duplicatedItem.setAttribute('aria-hidden', true)
+        // duplicatedItem.setAttribute('aria-hidden', true)
         scrollerInner.appendChild(duplicatedItem)
       })
     })
@@ -306,7 +308,7 @@ onMounted(() => {
         >
           <LazyReviewCard
             v-for="review in reviews"
-            :key="review.ID"
+            :key="review.id"
             :review="review"
           />
         </div>
@@ -317,7 +319,7 @@ onMounted(() => {
         Start to achieve your goals with us
       </div>
       <div class="mx-auto min-w-min rounded-xl bg-gradient-to-tr from-pink-700 to-blue-700 p-0.5 shadow-lg">
-        <button class="flex-1 text-xl bg-gray-800 px-6 py-3 rounded-xl w-80 sm:w-96">
+        <button class="flex-1 text-xl bg-gray-800 px-6 py-3 rounded-xl w-80 sm:w-96" @click="navigateTo('/register')">
           Sign Up For Free
         </button>
       </div>

@@ -4,8 +4,8 @@ const props = defineProps<{
   hidden: boolean
 }>()
 
-const textColorProp = toRef(props, 'textColor')
-const { onHoverTextColor: textColorStyle } = useHoverTextColor(textColorProp)
+const textColor = toRef(props, 'textColor')
+const { onHoverTextColor: textColorStyle } = useHoverTextColor(textColor)
 </script>
 <template>
   <button
