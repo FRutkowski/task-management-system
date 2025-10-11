@@ -1,12 +1,16 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: 'authenticated'
+})
 </script>
 
 <template>
-  <!-- <div class="p-10 h-[100vh] bg-gradient-to-r from-purple-500 to-rose-400  overflow-auto"> -->
-  <div class="p-10 h-[100vh]  bg-gradient-to-r from-pink-500 from-10% to-rose-500 to-40% overflow-auto">
-    <h1 class="text-4xl text-white flex items-center mb-10">
-      Trello board
-    </h1>
-    <DashBoard class="p-10" />
+  <div class="relative p-10 overflow-auto rounded-tl-xl">
+    <!-- <div class="absolute bg-white opacity-30 rounded-lg shadow-lg h-full right-10 left-10 bottom-20 top-10"> -->
+    <!-- </div> -->
+    <!---->
+    <!-- <DashBoard class="absolute pr-10 pt-10 right-20 left-20 board-scroll" /> -->
+
+    <DashBoard class="pr-10 pt-10 right-20 left-20 board-scroll" />
   </div>
 </template>

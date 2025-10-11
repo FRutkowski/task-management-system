@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.board-scroll::-webkit-scrollbar {
+    width: 1px;
+    height: 3px;
+    opacity: 0.2;
+    scrollbar-width: thin;
+    scrollbar-color: #000 #000;
+}
+
+/* Track */
+.board-scroll::-webkit-scrollbar-track {
+    background: pink;
+    border-radius: 1px;
+    opacity: 0.2;
+}
+
+/* Handle */
+.board-scroll::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 1px;
+}
+
+/* Handle on hover */
+.board-scroll::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+}

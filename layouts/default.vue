@@ -32,7 +32,7 @@ const toggleNavBar = () => {
     <ClientOnly>
       <div
         id="main"
-        class="bg-gradient-to-r from-0% from-indigo-700 via-30% via-purple-700 to-100% to-red-500"
+        class="bg-gradient-to-r from-0% from-indigo-700 via-15% via-purple-700 to-100% to-red-500"
         :class="height < 850 ? 'min-h-[53rem]' : 'min-h-screen'"
       >
         <nav

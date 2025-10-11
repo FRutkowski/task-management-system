@@ -53,24 +53,24 @@ const createColumn = () => {
 </script>
 
 <template>
-  <div class="flex items-start overflow-x-auto gap-4">
+  <div class="flex items-start overflow-x-auto board-scroll gap-4">
     <draggable
       v-model="columns"
       group="columns"
       :animation="150"
       handle=".drag-handle"
       item-key="id"
-      class="flex gap-4  items-start"
+      class="flex gap-2 items-start"
     >
       <template
         #item="{ element: column }: { element: Column }"
       >
-        <div class="column bg-gray-200 p-5 rounded min-w-[250px]">
+        <div class="column bg-white p-5 rounded border-gray-200 border shadow-lg min-w-[250px]">
           <header class="flex font-bold mb-4 items-center">
             <DragHandle />
             <input
               v-model="column.title"
-              class="title-input bg-transparent focus:bg-white rounded px-1 w-4/5"
+              class="title-input bg-transparent focus:bg-gray-200 rounded px-1 w-4/5"
               type="text"
               @keyup.enter="($event.target as HTMLInputElement).blur()"
               @keydown.backspace="column.title === '' ? columns = columns.filter(c => c.id !== column.id) : null"
@@ -86,6 +86,7 @@ const createColumn = () => {
             <template #item="{ element: task }: { element: Task }">
               <div>
                 <DashBoardTask
+                    class="border-gray-200 border"
                   :task="task"
                   @delete="column.tasks = column.tasks.filter((t) => t.id !== $event)"
                 />

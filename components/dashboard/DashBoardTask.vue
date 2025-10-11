@@ -36,18 +36,18 @@ onKeyStroke('Backspace', () => {
 }
 
 .sortable-ghost .task {
- background: gray;
  position: relative;
+ @apply bg-gray-200;
 }
 
 .sortable-ghost .task::after {
  content: "";
- @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-300 rounded;
+ @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-200 rounded;
 }
 
 .task:focus,
 .task:focus-visible {
-  @apply outline-gray-400 !important;
+  @apply outline-gray-200 !important;
   outline: gray auto 1px;
 }
 </style>
